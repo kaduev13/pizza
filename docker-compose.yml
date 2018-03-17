@@ -1,0 +1,27 @@
+version: '2.1'
+
+services:
+  pizza-api:
+    build: .
+    image: pizza-api:latest
+    environment:
+      DEBUG: 1
+      DATABASE_URL: psql://pizza:pizza@pizza-db:5432/pizza
+    links:
+      - pizza-db
+    volumes:
+      - .:/code
+    ports:
+      - "8992:8000"
+
+  pizza-db:
+    image: postgres:10.3-alpine
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: pizza
+      POSTGRES_USER: pizza
+    healthcheck:
+      test: ["CMD-SHELL", "PGPASSWORD=pizza pg_isready -U pizza -W"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
