@@ -30,7 +30,7 @@ Notes:
 ```bash
 $ git clone https://github.com/kaduev13/pizza.git
 $ cd pizza
-$ docker-compose up
+$ docker-compose -f docker-compose.yml up --build
 ```
 
 By default application is running on `localhost:8992`.
