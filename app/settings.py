@@ -3,7 +3,8 @@ import environ
 
 env = environ.Env(
     DEBUG=(bool, False),
-    SECRET_KEY=(str, 'change_it_for_production')
+    SECRET_KEY=(str, 'change_it_for_production'),
+    DATABASE_URL=(str, 'psql://postgres@127.0.0.1:5432/pizza')
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,7 +20,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    # 'rest_framework',
+    'orders'
 ]
 
 MIDDLEWARE = [

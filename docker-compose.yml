@@ -9,8 +9,6 @@ services:
       DATABASE_URL: psql://pizza:pizza@pizza-db:5432/pizza
     links:
       - pizza-db
-    volumes:
-      - .:/code
     ports:
       - "8992:8000"
 

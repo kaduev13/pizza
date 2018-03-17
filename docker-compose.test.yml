@@ -1,0 +1,11 @@
+version: '2.1'
+
+services:
+  pizza-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+
+  pizza-db:
+    logging:
+      driver: none

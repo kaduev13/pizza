@@ -34,3 +34,17 @@ $ docker-compose up
 ```
 
 By default application is running on `localhost:8992`.
+
+
+## Tests
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose.test.yml up --build --abort-on-container-exit
+```
+
+
+## Development
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
